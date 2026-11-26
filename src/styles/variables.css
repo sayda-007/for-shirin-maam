@@ -1,0 +1,50 @@
+:root {
+  /* Core palette */
+  --ivory: #f5f1e8;
+  --ink: #252923;
+  --sage: #a3aa91;
+  --olive: #74785d;
+  --terracotta: #b87960;
+  --gold: #d2b77a;
+
+  /* Derived surfaces */
+  --paper: #fbf8f1;
+  --paper-deep: #e9e2d3;
+  --paper-warm: #ede6d7;
+
+  /* Semantic tokens */
+  --bg: var(--ivory);
+  --surface: var(--paper);
+  --text: var(--ink);
+  --text-soft: rgba(37, 41, 35, 0.68);
+  --text-faint: rgba(37, 41, 35, 0.45);
+  --line: rgba(37, 41, 35, 0.14);
+  --line-strong: rgba(37, 41, 35, 0.28);
+  --accent: var(--olive);
+  --warm: var(--terracotta);
+  --shine: var(--gold);
+
+  /* Type */
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", cursive;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --shell-width: 1120px;
+
+  /* A very quiet paper grain */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.app--dark {
+  --bg: var(--ink);
+  --surface: #2c312a;
+  --text: var(--ivory);
+  --text-soft: rgba(245, 241, 232, 0.72);
+  --text-faint: rgba(245, 241, 232, 0.46);
+  --line: rgba(245, 241, 232, 0.16);
+  --line-strong: rgba(245, 241, 232, 0.32);
+  --accent: var(--sage);
+  --warm: var(--gold);
+}
