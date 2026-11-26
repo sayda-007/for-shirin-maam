@@ -1,91 +1,106 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { letter } from "../../data/content";
-import { SmallStar } from "../common/Illustrations";
+import { FlowerHeart } from "../common/Illustrations";
 
-export default function LetterScene({ reduced }) {
-  const [phase, setPhase] = useState("closed");
+function LetterLines({ lines, shared = false }) {
+  return (
+    <div className={`letter-lines ${shared ? "letter-lines--shared" : ""}`}>
+      {lines.map((line, index) => {
+        const isGreeting = index === 0;
+        const isSignature = index === lines.length - 1 || index === lines.length - 2;
+        return (
+          <p
+            key={line}
+            className={`letter-line ${isGreeting ? "letter-line--greeting" : ""} ${
+              isSignature ? "letter-line--signature" : ""
+            }`}
+          >
+            {line}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function LetterScene({ reduced, step, open, onOpen, onClose }) {
+  const [opening, setOpening] = useState(false);
   const timer = useRef(null);
+  const current = letter.letters[step];
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
   const openLetter = () => {
-    if (phase !== "closed") return;
+    if (open || opening) return;
     if (reduced) {
-      setPhase("open");
+      onOpen();
       return;
     }
-    setPhase("opening");
-    timer.current = window.setTimeout(() => setPhase("open"), 780);
+    setOpening(true);
+    timer.current = window.setTimeout(() => {
+      setOpening(false);
+      onOpen();
+    }, 620);
   };
 
   return (
     <div className="letter-scene">
+      <h2 className="section-heading">{letter.heading}</h2>
+
       <AnimatePresence mode="wait" initial={false}>
-        {phase !== "open" ? (
+        {!open ? (
           <motion.button
-            key="envelope"
+            key={`envelope-${current.id}`}
             type="button"
-            className={`envelope ${phase === "opening" ? "is-opening" : ""}`}
+            className={`envelope ${opening ? "is-opening" : ""}`}
             onClick={openLetter}
-            aria-label={`${letter.action}: ${letter.envelopeNote}`}
-            initial={{ opacity: 0, y: 14 }}
+            disabled={opening}
+            aria-label={`${current.action}. ${letter.envelopeNote}.`}
+            initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.97 }}
-            transition={{ duration: reduced ? 0 : 0.5 }}
+            exit={reduced ? undefined : { opacity: 0, scale: 0.97 }}
+            transition={{ duration: reduced ? 0 : 0.45 }}
           >
             <span className="envelope__back" aria-hidden="true" />
             <motion.span
               className="envelope__sheet"
               aria-hidden="true"
               initial={false}
-              animate={{ y: phase === "opening" ? -78 : 0 }}
-              transition={{ duration: reduced ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+              animate={{ y: opening ? -62 : 0 }}
+              transition={{ duration: reduced ? 0 : 0.58, ease: [0.22, 1, 0.36, 1] }}
             />
             <motion.span
               className="envelope__flap"
               aria-hidden="true"
               initial={false}
-              animate={{ rotateX: phase === "opening" ? -176 : 0 }}
-              transition={{ duration: reduced ? 0 : 0.65, ease: [0.32, 0.72, 0.25, 1] }}
+              animate={{ rotateX: opening ? -170 : 0 }}
+              transition={{ duration: reduced ? 0 : 0.55, ease: [0.32, 0.72, 0.25, 1] }}
             />
             <span className="envelope__front" aria-hidden="true" />
             <span className="envelope__seal" aria-hidden="true">
-              <SmallStar />
+              <FlowerHeart />
             </span>
-            <span className="envelope__caption">
-              <span className="envelope__label">{letter.envelopeLabel}</span>
-              <span className="envelope__note">{letter.envelopeNote}</span>
-            </span>
+            <span className="envelope__label">{current.invitation}</span>
+            <span className="envelope__note">{letter.envelopeNote}</span>
+            <span className="envelope__action">{current.action}</span>
           </motion.button>
         ) : (
           <motion.article
-            key="letter"
-            className="letter"
-            initial={reduced ? undefined : { opacity: 0, y: 22 }}
+            key={`letter-${current.id}`}
+            className="letters"
+            aria-label={current.label}
+            initial={reduced ? undefined : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: reduced ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+            exit={reduced ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: reduced ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="letter__paper">
-              <div className="letter__head">
-                <span>{letter.envelopeLabel}</span>
-                <SmallStar className="letter__head-star" />
-              </div>
+            <section className={`letter-panel letter-panel--${current.id}`}>
+              <h3>{current.label}</h3>
+              <LetterLines lines={current.message} shared={current.id === "shared"} />
+            </section>
 
-              <section className="letter__block">
-                <h3 className="letter__block-label">{letter.one.label}</h3>
-                <p className="letter__placeholder">{letter.one.placeholder}</p>
-              </section>
-
-              <section className="letter__block">
-                <h3 className="letter__block-label">{letter.two.label}</h3>
-                <p className="letter__placeholder">{letter.two.placeholder}</p>
-              </section>
-
-              <p className="letter__shared">{letter.shared}</p>
-            </div>
-
-            <button type="button" className="letter__fold" onClick={() => setPhase("closed")}>
+            <button type="button" className="letters__fold" onClick={onClose}>
               {letter.closeAction}
             </button>
           </motion.article>

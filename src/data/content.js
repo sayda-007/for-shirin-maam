@@ -1,159 +1,183 @@
 /**
  * Every word that can be personalized lives here.
- * Edit this single file to make the experience your own.
+ * Edit this single file to update the surprise.
  */
 
 export const site = {
-  experienceTitle: "Beyond the Blackboard",
+  title: "For Shirin Ma'am",
+  experienceTitle: "A Little Surprise",
   professor: "Shirin Ma'am",
   eyebrow: "FOR SHIRIN MA'AM",
-  footerNote: "Made by two students, with appreciation.",
+  footerNote: "Made with appreciation by Sayda & Nobin.",
 };
 
 export const welcome = {
-  label: "A LITTLE SOMETHING FOR YOU",
-  headingFirst: "Beyond the",
-  headingSecond: "Blackboard",
-  supporting: "A little surprise for someone who makes learning meaningful.",
-  handwritten: "Made with appreciation, especially for Shirin Ma'am.",
-  action: "Let's Begin",
+  label: "A LITTLE SURPRISE",
+  heading: "Shirin Ma'am, this is for you.",
+  supporting: "A small surprise from two students who appreciate you.",
+  signature: "Made with appreciation by Sayda & Nobin.",
+  action: "Start the surprise",
+  portraitSrc: "/assets/shirin_maam.png",
+  portraitAlt: "Portrait of Shirin Ma'am",
 };
 
 export const questions = [
-  { id: "search", number: "01", eyebrow: "A QUICK SEARCH", title: "Who is our favourite professor?" },
-  { id: "qualities", number: "02", eyebrow: "THE LITTLE DETAILS", title: "What makes her so special?" },
-  { id: "classroom", number: "03", eyebrow: "FROM OUR NOTEBOOK", title: "What makes her classes different?" },
-  { id: "syllabus", number: "04", eyebrow: "BEYOND THE SYLLABUS", title: "What have we learned from her beyond the syllabus?" },
-  { id: "symbol", number: "05", eyebrow: "A LITTLE SYMBOL", title: "If Shirin Ma'am were a symbol, what would she be?" },
-  { id: "notes", number: "06", eyebrow: "THE LITTLE THINGS", title: "What are the little things we appreciate about her?" },
-  { id: "heart", number: "07", eyebrow: "ONE LAST QUESTION", title: "What do we wish she knew?" },
-];
-
-export const search = {
-  placeholder: "Search for our favourite professor",
-  query: "Shirin Ma'am",
-  searching: "Finding the right answer…",
-  resultLabel: "1 very fitting result",
-  answer: "It's Shirin Ma'am!",
-  supporting: "Obviously. Some teachers are simply unforgettable.",
-};
-
-export const qualities = [
   {
-    word: "Kindness",
-    message: "You make people feel at ease, and that makes a harder thing easier to learn.",
+    id: "search",
+    number: "01",
+    question: "Who is your favorite professor?",
+    answer: "Shirin Ma'am, of course!",
+    supporting: "Some people make learning memorable simply by being who they are.",
   },
   {
-    word: "Patience",
-    message: "You give questions the time they deserve, however small they might seem.",
+    id: "qualities",
+    number: "02",
+    question: "What makes her classes memorable?",
+    answer:
+      "The care she puts into sharing what she knows — and the feeling that learning is worth the effort.",
   },
   {
-    word: "Dedication",
-    message: "The care you bring to your teaching is something students really notice.",
+    id: "classroom",
+    number: "03",
+    question: "What do we appreciate most about her?",
+    answer: "Her patience, kindness, and the effort she brings to her work.",
   },
   {
-    word: "Inspiration",
-    message: "You make us want to understand a little more than what is asked of us.",
-  },
-];
-
-export const classroom = {
-  coverLabel: "Class notes",
-  coverSub: "A page worth keeping",
-  message: [
-    "A wonderful class is not only about understanding a topic.",
-    "It is about leaving with a little more curiosity than we had before.",
-  ],
-  caption: "— from our notebook",
-  action: "Open the notebook",
-  openAction: "Close the notebook",
-};
-
-export const syllabus = {
-  documentTitle: "Lessons from the classroom",
-  note: "Some of what we took with us was not written down.",
-  action: "Reveal the full list",
-  revealedAction: "Hide the list",
-  items: [
-    "Confidence",
-    "Curiosity",
-    "Perseverance",
-    "Independent thinking",
-    "The courage to keep learning",
-  ],
-  closing: "Some lessons don't fit inside a syllabus.",
-};
-
-export const symbols = [
-  {
-    id: "compass",
-    name: "A Compass",
-    message: "Someone who helps others find direction.",
+    id: "syllabus",
+    number: "04",
+    question: "What stays with us beyond the syllabus?",
+    answer: "Confidence to ask questions, curiosity to explore, and the courage to keep trying.",
   },
   {
-    id: "light",
-    name: "A Light",
-    message: "Someone who makes difficult things a little clearer.",
+    id: "symbol",
+    number: "05",
+    question: "What do we wish she knew?",
+    answer: "We notice the effort you put into your students, even when we don't say it out loud.",
   },
   {
-    id: "book",
-    name: "An Open Book",
-    message: "Someone who makes us curious to discover more.",
+    id: "notes",
+    number: "06",
+    question: "Who made this little surprise?",
+    answer: "Sayda and Nobin — two of your students, with a small thank-you.",
+  },
+  {
+    id: "heart",
+    number: "07",
+    question: "What is one thing we want to say before we go?",
+    answer: "Thank you, Shirin Ma'am. We're genuinely glad we got to learn from you.",
   },
 ];
 
-export const notes = [
-  "Thank you for being patient with us.",
-  "Thank you for making time to help us understand.",
-  "Thank you for the effort you put into teaching.",
-  "Thank you for encouraging your students to grow.",
-];
-
-export const finalQuestion = {
-  thought: "Take a moment…",
-  answer: [
-    "That her efforts do not go unnoticed.",
-    "That the things she teaches, the encouragement she shares, and the care she puts into her work mean more than she may realize.",
-  ],
+export const searchUi = {
+  label: "A LITTLE SEARCH",
+  searching: "Searching…",
+  resultLabel: "A little result",
+  typingHint: "A question is being searched",
 };
 
-export const award = {
-  heading: "One award we didn't want to forget.",
-  title: "THE WONDERFUL TEACHER AWARD",
-  presentedLabel: "PRESENTED TO",
-  recipient: "Shirin Ma'am",
-  recognition:
-    "For making learning meaningful, inspiring curiosity, and leaving a positive impression on her students.",
-  signature: "With gratitude — from two of your students",
-  action: "Accept Your Award",
-  accepted: "A small keepsake, from two grateful students.",
+export const appreciation = {
+  heading: "A little more we wanted to say.",
+  supporting: "Because some things deserve more than a search result.",
 };
 
 export const letter = {
-  heading: "Two Students. One Little Letter.",
-  envelopeLabel: "A LETTER FOR YOU",
+  heading: "A little more we wanted to say.",
   envelopeNote: "Open when you have a moment",
-  action: "Open the letter",
   closeAction: "Fold it back",
-  one: {
-    label: "A little note from Student One",
-    placeholder: "[Personal message from the first student]",
-  },
-  two: {
-    label: "A little note from Student Two",
-    placeholder: "[Personal message from the second student]",
-  },
-  shared: "Different words, the same feeling. We are genuinely grateful to have you as our teacher.",
+  letters: [
+    {
+      id: "sayda",
+      invitation: "A letter from Sayda",
+      action: "Open Sayda's letter",
+      label: "Sayda's letter",
+      continueLabel: "Next",
+      message: [
+        "Dear Shirin Ma'am,",
+        "There is something I especially want to thank you for, and it is the way you care about your students beyond the classroom.",
+        "During the times when I have been unwell, your concern has meant more to me than I can properly explain. You personally called to ask how I was doing, checked on me, and made sure I was okay. Those little moments may seem ordinary, but they meant a lot to me. Being remembered and cared for like that made me feel genuinely valued.",
+        "I also admire how punctual and responsible you are. The way you take your responsibilities seriously and put your heart into completing every task is something I truly respect. It is clear that you make an effort to do things properly, and I find that quality really inspiring.",
+        "I don't think I always express my appreciation well enough, but I want you to know that I notice these things. Your kindness, care, and dedication have made a difference to me, not just as a professor, but as someone who genuinely cares about the people around her.",
+        "Thank you for checking on me, for remembering me, and for being so thoughtful. I feel lucky to have a professor like you.",
+        "With lots of love, respect and appreciation,",
+        "Sayda",
+      ],
+    },
+    {
+      id: "nobin",
+      invitation: "A letter from Nobin",
+      action: "Open Nobin's letter",
+      label: "Nobin's letter",
+      continueLabel: "Next",
+      message: [
+        "Dear Shirin Ma'am,",
+        "I wanted to take a moment to thank you for the effort and care you put into your classes. I truly appreciate the way you share your knowledge and take your responsibilities seriously. It is easy to notice when someone puts genuine effort into what they do, and I respect that about you.",
+        "I also appreciate the thought you give to your students and the time you dedicate to helping us learn. Your patience and commitment make a difference, even in little ways that we may not always express.",
+        "I hope this small surprise brings a smile to your face. You deserve to know that your efforts are noticed and appreciated.",
+        "Thank you for being such a wonderful professor.",
+        "With respect and appreciation,",
+        "Nobin",
+      ],
+    },
+    {
+      id: "shared",
+      invitation: "A letter from both of us",
+      action: "Open our letter",
+      label: "A note from both of us",
+      continueLabel: "Continue",
+      message: [
+        "Dear Shirin Ma'am,",
+        "We wanted to make something small to say something important: THANK YOU.",
+        "Thank you for sharing your knowledge, for your patience, and for the effort you bring to your classes.",
+        "We might not always find the right words in the moment, but we are genuinely grateful to have learned from you.",
+
+        "Thank you so much for everything Ma'am.",
+        "We love you and appreciate you.♡",
+
+        "With appreciation,",
+        "Sayda & Nobin",
+      ],
+    },
+  ],
 };
 
 export const closing = {
   lines: [
-    "Some teachers teach lessons.",
-    "Some make difficult things easier.",
-    "And some leave a little something behind in the hearts of their students.",
+    "Some professors teach us the subject.",
+    "Some leave us with a little more confidence to take into the world.",
+    "We're grateful we got to learn from you.",
   ],
-  final: ["Thank you, Shirin Ma'am.", "You are truly special to us."],
-  signature: "With appreciation and love, from two of your students.",
+  final: "Thank you, Shirin Ma'am.",
+  signature: ["With appreciation,", "Sayda & Nobin."],
+  restart: "Start again",
   skip: "Skip the pause",
-  restart: "Restart the experience",
+};
+
+/**
+ * Add real profile objects here when URLs are supplied, for example:
+ * { id: "instagram", platform: "Instagram", url: "https://…", thumbnail: "/assets/instagram.svg", alt: "…" }
+ * No profile links are displayed until a real URL is added.
+ */
+export const socialProfiles = [];
+
+export const ui = {
+  skipLink: "Skip to content",
+  welcomeHeader: "A LITTLE SURPRISE",
+  defaultHeader: "FOR SHIRIN MA'AM",
+  back: "Back",
+  continue: "Continue",
+  nextQuestion: "Next question →",
+  navHint: "",
+  backHintWelcome: "Return to the welcome",
+  nextHint: "Next scene",
+  nextLabels: {
+    appreciation: "To the letters",
+  },
+  announcements: {
+    welcome: "A little surprise for Shirin Ma'am.",
+    appreciation: "A little more we wanted to say.",
+    letter: "A little more we wanted to say.",
+    closing: "A final thank you.",
+    question: (number, question) => `Question ${number} of 07: ${question}`,
+    answer: (question, answer) => `Search complete. ${question} ${answer}`,
+  },
 };

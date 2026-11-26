@@ -1,43 +1,35 @@
-@keyframes caret-blink {
+@keyframes cursor-blink {
   0%,
-  48% {
+  49% {
     opacity: 1;
   }
-  49%,
+
+  50%,
   100% {
     opacity: 0;
   }
 }
 
-@keyframes loading-sweep {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(320%);
-  }
-}
-
-@keyframes spark-pop {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0) scale(0.35) rotate(0deg);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(var(--sx), var(--sy)) scale(1) rotate(135deg);
-  }
-}
-
-@keyframes line-draw {
+@keyframes search-fill {
   from {
-    transform: scaleX(0);
+    width: 0;
+    opacity: 0.9;
   }
+
   to {
-    transform: scaleX(1);
+    width: 100%;
+    opacity: 0.55;
+  }
+}
+
+@keyframes search-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
   }
 }
 
